@@ -1,3 +1,4 @@
+#define _BOOL
 #include "SeExprMeshNode.h"
 #include "SeExprMeshCmd.h"
 #include <maya/MFnPlugin.h>

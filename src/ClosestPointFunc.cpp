@@ -1,8 +1,10 @@
+#define _BOOL
 #include <SeExprFunc.h>
 #include <SeExprNode.h>
 #include <maya/MObject.h>
 #include <maya/MMeshIntersector.h>
 #include "ClosestPointFunc.h"
+
 
 
 void getMPointOnMesh(

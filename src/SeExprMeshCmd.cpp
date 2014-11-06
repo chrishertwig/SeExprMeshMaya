@@ -1,3 +1,5 @@
+#define _BOOL
+#include <iostream>
 #include <maya/MDagPath.h>
 #include <maya/MPlug.h>
 #include <maya/MPlugArray.h>
@@ -9,7 +11,6 @@
 #include <maya/MGlobal.h>
 #include "SeExprMeshCmd.h"
 #include "SeExprMeshNode.h"
-#include <iostream>
 
 const char *envFlag = "-en", *envFlagLong = "-envelope";
 const char *expstrFlag = "-str", *expstrFlagLong = "-expstr";

@@ -1,6 +1,13 @@
 #ifndef _MeshExpression_h_
 #define _MeshExpression_h_
-
+#include <cstdlib>
+#include <cstdio>
+#include <map>
+#include <iostream>
+#include <string>
+// max and min must be undefined to work with seexpr
+#undef max
+#undef min
 #include <maya/MPoint.h>
 #include <maya/MVector.h>
 #include <maya/MFloatPoint.h>
@@ -13,11 +20,7 @@
 #include <SeExprFunc.h>
 #include <SeExprBuiltins.h>
 #include <SeExprNode.h>
-#include <cstdlib>
-#include <cstdio>
-#include <map>
-#include <iostream>
-#include <string>
+
 
 struct SimpleScalarVar: public SeExprScalarVarRef
 {

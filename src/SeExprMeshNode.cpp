@@ -1,3 +1,6 @@
+#define _BOOL
+#include <string>
+#include <algorithm>
 #include <maya/MFnMesh.h>
 #include <maya/MFnMeshData.h>
 #include <maya/MDataHandle.h>
@@ -18,11 +21,11 @@
 #include <maya/MFnAttribute.h>
 #include <maya/MUintArray.h>
 #include <maya/MGlobal.h>
+#include <maya/MItMeshVertex.h>
 #include "SeExprMeshNode.h"
 #include "MeshExpression.h"
 #include "ClosestPointFunc.h"
-#include <string>
-#include <algorithm>
+
 
 #ifdef _OPENMP
 #include <omp.h>
@@ -313,9 +316,17 @@ MStatus SeExprMeshNode::execSeExpr(
 		MUintArray uints;
 		outMeshFn.createColorSetWithName(colorSetName, NULL, &uints);
 		inCds.setLength(pNums);
-		for (int i=0; i<inCds.length(); ++i)
-			inCds.set(MColor::kRGB, 0, 0, 0, 1);
-		inMeshFn.getColors(inCds);
+		// itterate through vertices to get the vertex color
+		MStatus status;
+		MItMeshVertex vertIter(inMesh, &status);
+		if (status) {
+			for (; !vertIter.isDone(); vertIter.next()){
+				MColor color;
+				vertIter.getColor(color);
+				inCds.set(color, vertIter.index());
+			}
+		}
+
 		if (inCds.length() == 0)
 			inCds.setLength(pNums);
 	}
