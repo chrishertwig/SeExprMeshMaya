@@ -96,6 +96,7 @@
     <ClCompile>
       <AdditionalIncludeDirectories>C:\Program Files\Autodesk\Maya2014\include;C:\Users\christian\Desktop\SeExpr\build\x64\MinSizeRel\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>;WIN32;NDEBUG;_WINDOWS;NT_PLUGIN;REQUIRE_IOSTREAM</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>C:\Program Files\Autodesk\Maya2014\lib;C:\Users\christian\Desktop\SeExpr\build\x64\MinSizeRel</AdditionalLibraryDirectories>
